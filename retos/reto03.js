@@ -8,9 +8,9 @@
 "() bici" // ❌
 */
 
-const reSimbolos = /.*\({1}.*({+|\[+).*\){1}.*/;
-const reParentesis = /.*\(\).*/;
-const reNotClosing = /.*\(.*\).*/;
+const reSimbolos = /.*\({1}.*({+|\[+).*\){1}.*/; // ....
+const reParentesis = /.*\(\).*/; //
+const reNotClosing = /.*\(.*\).*/; //
 
 export default function isValid(letter) {
   const reParen = letter.match(reParentesis);
@@ -25,4 +25,5 @@ export default function isValid(letter) {
 }
 
 const str = "bici coche (balón) bici coche peluche";
+
 console.log(isValid(str));
