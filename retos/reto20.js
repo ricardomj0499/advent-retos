@@ -1,19 +1,25 @@
-const str = ".!";
+/*
+Desde el taller de Santa 🎅 se han enterado y quieren escribir una función que les diga si realmente la cadena de texto que les llega tiene, efectivamente, todas las letras del abecedario español 🔎.
+Hay que tener en cuenta las letras en mayúscula y que las letras con acento y diéresis se consideran iguales. Por ejemplo la á y la ä cuenta como una a.
+*/
 
-const valores = {
-    ".": 1,
-    ",": 5,
-    ":": 10,
-    ";": 50,
-    "!": 100,
-};
-const arr = str.split("");
-console.log(arr.map((e) => valores[e]));
-//
-const ar = [1, 2, 3, 4, 5];
-console.log(ar[ar.length - 2]);
+export default function pangram(letter) {
+    const regex = /[a-zñáéíóúü]/gi;
+    const cant = new Set(letter.match(regex));
+    //console.log(cant);
+    //console.log(cant.size >= 27 ? true : false);
+    //console.log("/////////////////////////////////////////");
+    return cant.size >= 27 ? true : false;
+}
 
-const r = [];
-console.log(r.length);
-let a = 6;
-console.log((a += -3));
+console.log(pangram("Extraño pan de col y kiwi se quemó bajo fugaz vaho")); // true
+console.log(
+    pangram("Jovencillo emponzoñado y con walkman: ¡qué figurota exhibes!")
+); // true
+
+console.log(
+    pangram(
+        "Esto es una frase larga pero no tiene todas las letras del abecedario"
+    )
+); // false
+console.log(pangram("De la a a la z, nos faltan letras")); // false
