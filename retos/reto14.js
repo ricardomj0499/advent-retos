@@ -9,6 +9,20 @@ Lo peor es que son tantos que no sabemos cuál es el que nos falta... ¡Qué lí
 
 Necesitamos una función que al pasarle la lista de ids de renos nos diga inmediatamente cuál es el que falta:
 */
+export default function missingReindeer1(ids) {
+    const listToN = Array.from(Array(ids.length + 1).keys());
+    for (let x of listToN) {
+        if (!ids.includes(x)) {
+            console.log(x);
+            return x;
+        }
+    }
+    return 0;
+}
 
-const set1 = new Set([1, 3, 2, 4, 5]);
-console.log(set1);
+missingReindeer([0, 2, 3]); // -> 1
+missingReindeer([5, 6, 1, 2, 3, 7, 0]); // -> 4
+missingReindeer([0, 1]); // -> 2 (¡es el último el que falta!)
+missingReindeer([3, 0, 1]); // -> 2
+missingReindeer([9, 2, 3, 5, 6, 4, 7, 0, 1]); // -> 8
+missingReindeer([0]); // -> 1 (¡es el último el que falta!)

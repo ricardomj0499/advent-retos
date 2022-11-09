@@ -20,7 +20,6 @@ export default function countDecorations(bigTree) {
     decoraciones += countDecorations(bigTree.left);
     decoraciones += countDecorations(bigTree.right);
 
-    // ¡No olvides compartir tu solución en redes!
     return decoraciones;
 }
 const tree = {
